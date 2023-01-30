@@ -23,13 +23,14 @@ matrix.
                                                                 
 On the 2D matrix, above each digit(key) there is a physical conductor that continues straight down from the top and covers all the keys that are in that row. The ends 
 of the keys are connected with another conductor that continues to the right and covers all the keys that are in that column.Multiplexing is enabled by using the three 
-pins used to mark the rows to set a logical one ("1" – high level) or a logical zero (low level). The procedure is as follows, it must be on one of those pins (row 
+pins used to mark the rows to set a logical one ("1" – high level) or a logical zero (low level). 
+The procedure is as follows, it must be on one of those pins (row 
 pins) let's set a logical one (only a logical high level) and on the other pins only a logical zero, and with the column pins let's scan.The row pins will have the
 following values - 001, 010, 100. From right to to the left of these combinations they will have a special pin that will go into the parallel port and we will use the 
 Status register.The Status register is used because it can only read values from the parallel port.The other pins (the rest four, for the columns) are pins that are
 connected to the parallel port and access the Control register.Let's go back to the multiplexing procedure, that is, to the row pins and the combinations for which the
 pins should receive the values for the keyboard to work correctly.We bring the combination 001 to the row pins, on the first and second pin we carry a logical zero
-('0',logical zero, zero volts), and on the third rightmost pin, we carry a logical unit ('1', high logic level). After the procedure for rows, we need to clear 
-(scan)the value of 
-the columns, and with the value in the register that we get we will know if a certain key was pressed. We can have combinations 0001, 0010, 0100 and 1000 in the Status 
-register. If in the Status register the we have a value of 0001, and in the Control register 001, it means that the '#' key is pressed.
+('0',logical zero, zero volts), and on the third rightmost pin, we carry a logical unit ('1', high logic level).
+After the procedure for rows, we need to clear (scan)the value of the columns, and with the value in the register that we get we will know if a certain key was 
+pressed. We can have combinations 0001, 0010, 0100 and 1000 in the Status register. 
+If in the Status register the we have a value of 0001, and in the Control register 001, it means that the '#' key is pressed.
